@@ -1,6 +1,6 @@
 ---
 
-# FirstAppNgmodule
+# First Angular App
 
 This project is an online CRUD operation-based Angular web application created using AngularJS. It allows courses to be added and managed through Angular forms on the admin dashboard. The application was deployed using Docker by creating a Docker image, running a Docker container, and serving it with an Nginx server. This project was developed as a practice project to learn Angular, which was later used in a company project.
 
