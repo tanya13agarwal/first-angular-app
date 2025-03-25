@@ -45,7 +45,7 @@ To compile the project for deployment, run:
 ng build
 ```
 
-### 4. Create a Docker image
+### 4. Create a Docker image ( First set up Docker and Nginx if not installed in the system. )
 
 Create a `Dockerfile` and add the necessary configuration. Then, build the Docker image:
 
