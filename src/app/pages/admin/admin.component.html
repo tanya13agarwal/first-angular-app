@@ -1,0 +1,73 @@
+<div class="card">
+
+    <div class="card-header">
+        <span appHoverColor>{{'Add course' | uppercase}}</span>
+    </div>
+
+    <div class="card-body">
+        <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <!-- [(ngModel)]="model.title" -->
+                <input type="text" class="form-control" placeholder="Enter title" id="title" name="title" #title="ngModel" [(ngModel)]="model().title" required>
+                <!-- Method 1
+                <div *ngIf="title.invalid && title.touched" class="text-danger">Title is required.</div> -->
+
+                <!-- Method 2 -->
+                @if(title.invalid && title.touched){
+                    <div class="text-danger">Title is required.</div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <!-- [(ngModel)]="model.description"  -->
+                <textarea class="form-control" rows="3" placeholder="Enter description" id="description" name="description" #description="ngModel" [(ngModel)]="model().description" required></textarea>
+                <div *ngIf="description.invalid && description.touched" class="text-danger">Description is required.</div>
+            </div>
+
+            <div class="imageDiv">
+                <label for="image">Choose an image:</label>
+                <input type="file" id="image" name="image" accept="image/*" [multiple]="false" (change)="onFileSelected($event)" ngModel required/>
+
+                <!-- @if(cover){ -->
+                @if(cover()){
+                    <div class="image" align="right">
+                        <!-- <img [src]="cover" alt=""> -->
+                        <img [src]="cover()" alt="">
+                    </div>
+                }
+
+                <!-- @if(showError){ -->
+                @if(showError()){
+                    <div class="text-danger">image is required.</div>
+                }
+            </div>
+
+            <div class="mb-3" align="center">
+                <button type="submit" class="btn btn-primary btn-lg">Save</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- <app-courses [courses]="courses" [isAdmin]="true" (del)="deleteCourse($event)"></app-courses> -->
+<app-courses [isAdmin]="true"></app-courses>
+<!-- 
+<div class="row mt-3">
+
+    @for(course of courses; track $index){
+        <div class="col-lg-4 mb-4"> -->
+            <!-- we want to show to admin the delete button -->
+            <!-- course and isDelete are input decorator parameters , del is output decorator parameter -->
+            <!-- <app-courses [course]="course" [isDelete]="true" (del)="deleteCourse($event)"></app-courses>
+        </div>
+    }
+    @empty {
+        <div align="center">
+            No course added yet
+        </div>
+    }
+</div> -->
