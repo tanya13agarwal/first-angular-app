@@ -1,59 +1,74 @@
+---
+
 # FirstAppNgmodule
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+This project is an online CRUD operation-based Angular web application created using AngularJS. It allows courses to be added and managed through Angular forms on the admin dashboard. The application was deployed using Docker by creating a Docker image, running a Docker container, and serving it with an Nginx server. This project was developed as a practice project to learn Angular, which was later used in a company project.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- **Frontend:** AngularJS
+- **Containerization & Deployment:** Docker
+- **Web Server:** Nginx
 
-```bash
-ng serve
-```
+## Installation and Setup
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Follow these steps to set up and run the project locally:
 
-## Code scaffolding
+### 1. Clone the repository
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open a terminal and run:
 
 ```bash
-ng generate --help
+git clone <repository-url>
+cd FirstAppNgmodule
 ```
 
-## Building
+### 2. Install dependencies
 
-To build the project run:
+Run the following command to install all required dependencies:
+
+```bash
+npm install
+```
+
+If Angular CLI is not installed, install it globally using:
+
+```bash
+npm install -g @angular/cli
+```
+
+### 3. Build the Angular project
+
+To compile the project for deployment, run:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 4. Create a Docker image
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Create a `Dockerfile` and add the necessary configuration. Then, build the Docker image:
 
 ```bash
-ng test
+docker build -t firstapp-ngmodule .
 ```
 
-## Running end-to-end tests
+### 5. Run the Docker container
 
-For end-to-end (e2e) testing, run:
+Start the application using the following command:
 
 ```bash
-ng e2e
+docker run --rm -p 8080:80 firstapp-ngmodule
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 6. Access the application
 
-## Additional Resources
+Once the container is running, open your browser and go to:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+http://localhost:8080
+```
+
+Your Angular application should now be live!
+
+---
